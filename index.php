@@ -3,10 +3,7 @@
 echo "Hello World!";
 
 $data = file_get_contents('php://input');
-
-$db = fopen("data.csv", "w") or die("can't open");
-fwrite($db, $data);
-fclose($db);
+file_put_contents("data.csv", $data, FILE_APPEND | LOCK_EX);
 
 #echo $data;
 
